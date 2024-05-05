@@ -1,0 +1,58 @@
+<!--
+
+Copyright 2024 Bufferstack.IO Analytics Technology LLP, Pune.
+
+Licensed under the GNU General Public License, Version 3.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.gnu.org/licenses/gpl-3.0.html
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType('context-get',{
+        category: 'Context',
+        defaults: {
+            name: {value:"", required:true},
+            variable: {value:"", required:true},
+            scope: {value:"global", required:true},
+            },
+        inputs:1,
+        outputs:1,
+        icon: "function.png",
+        label: function() {
+            return this.name || "context-get";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="context-get">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-variable"><i class="fa fa-tag"></i> Variable</label>
+        <input type="text" id="node-input-variable" placeholder="Variable" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-scope"><i class="fa fa-tag"></i> Scope</label>
+        <select id="node-input-scope">
+            <option value="global">Global</option>
+            <option value="flow">Flow</option>
+        </select>
+    </div>
+    <!-- Help section for the node -->
+    <div class="form-row">
+        <label for="node-help"><i class="fa fa-question-circle"></i> Help</label>
+        <span class="red-ui-help-text" id="node-help">This node retrieves a variable from the context. Enter the variable name and select the scope (global or flow) from which the variable should be retrieved.</span>
+    </div>
+</script>
+
